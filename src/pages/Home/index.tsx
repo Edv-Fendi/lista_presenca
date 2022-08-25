@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css';
 
-import { Card } from '../../components/Card';
+import { Card, CardProps } from '../../components/Card';
 
 export function Home() {
   const [studentName, setStudentName] = useState('');
-  const [students, setStudents] = useState([]);
+  const [students, setStudents] = useState<CardProps[]>([]);
   const [user, setUser] = useState({ name: '', avatar: '' });
 
   function handleAddStudent() {
@@ -24,7 +24,7 @@ export function Home() {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch('https://api.github.com/users/rodrigorgtic');
+      const response = await fetch('https://api.github.com/users/Edv-Fendi');
       const data = await response.json();
       console.log("DADOS ===> ", data);
 
